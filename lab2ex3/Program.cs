@@ -32,4 +32,4 @@ Console.WriteLine("count = " + count);
 
 mediaAritmetica /= count;
 
-Console.WriteLine("Media aritmetica = " + mediaAritmetica);
+Console.WriteLine("Media aritmetica a nr-lor pare = " + mediaAritmetica);
