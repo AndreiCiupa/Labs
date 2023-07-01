@@ -8,4 +8,4 @@ Console.Write("Introduceti un numar intreg: ");
 int n = int.Parse(Console.ReadLine());
 
 int ultimaCifra = n % 10;
-Console.WriteLine("Ultima cifra a numarului este:" + c);
+Console.WriteLine("Ultima cifra a numarului este:" + ultimaCifra);
