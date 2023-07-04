@@ -25,7 +25,3 @@ else
         Console.WriteLine("Numarul este un palindrom.");
     else Console.WriteLine("Numarul NU este un palindrom.");
 }
-
-//if (n == mirror)
-//    Console.WriteLine("Numarul este un palindrom.");
-//else Console.WriteLine("Numarul NU este un palindrom.");
