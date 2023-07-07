@@ -35,7 +35,7 @@ Console.Write("Numerele prime din vector: ");
 Prime(v);
 
 
-//Functie pt afisarea vectorului
+//Functie pentru afisarea vectorului
 static void AfisareVector(int[] v)
 {
     Console.Write("{ ");
@@ -46,7 +46,7 @@ static void AfisareVector(int[] v)
     Console.WriteLine("}");
 }
 
-//Functie pt cautarea si returnarea valorii maxime
+//Functie pentru cautarea si returnarea valorii maxime
 static int Maxim(int[] v)
 {
     int max = v[0];
@@ -59,7 +59,7 @@ static int Maxim(int[] v)
     return max;
 }
 
-//Functie pt cautarea si returnarea valorii minime
+//Functie pentru cautarea si returnarea valorii minime
 static int Minim(int[] v)
 {
     int min = v[0];
@@ -115,7 +115,7 @@ static bool EstePrim(int x)
 
 }
 
-//Functie gasire + afisare prime 
+//Functie pentru gasirea + afisarea numerelor prime 
 static void Prime(int[] v)
 {
     int contor = 0;
