@@ -10,8 +10,6 @@ rezultatul.
 */
 
 // Se introduc de la tastatura dimensiunile
-using System.Globalization;
-
 Console.Write("n = ");
 int n = int.Parse(Console.ReadLine());
 
