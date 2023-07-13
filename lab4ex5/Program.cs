@@ -10,7 +10,7 @@ Console.WriteLine(SumaN(n));
 
 static int SumaN(int n)
 {
-    if (n != 0)
+    if (n > 0)
     return n + SumaN(n-1); 
     else return n;
 }
