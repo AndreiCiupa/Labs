@@ -33,10 +33,16 @@ static void AfisareVector(int[] v)
 
 static void InversareVector(int[] v)
 {
+    // 2 4 1 15 3
+    //
     int j = v.Length - 1;
     for(int i  = 0; i < v.Length/2; i++)
     {
-        (v[j], v[i]) = (v[i], v[j]);
+        ///(v[j], v[i]) = (v[i], v[j]);
+        int aux = v[i];
+        v[i] = v[j];
+        v[j]=aux;
+        
         j--;
     }
 }

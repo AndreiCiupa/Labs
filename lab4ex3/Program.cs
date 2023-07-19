@@ -63,7 +63,7 @@ static void AfisareMatrice(int[,] matrice, int n, int m)
     }
 }
 
-static void ProdusMatrice(int[,] A, int[,] B, int n, int m)
+static int[,] ProdusMatrice(int[,] A, int[,] B, int n, int m)
 {
     int dimensiuneProdus = n;
 
@@ -80,5 +80,6 @@ static void ProdusMatrice(int[,] A, int[,] B, int n, int m)
             }
         }
     }
-    AfisareMatrice(produsAB, dimensiuneProdus, dimensiuneProdus);
+    return produsAB;
+    //AfisareMatrice(produsAB, dimensiuneProdus, dimensiuneProdus);
 }

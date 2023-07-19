@@ -19,9 +19,10 @@ AfisareVectorRecursiv(vector, lungimeVector - 1);
 
 static void AfisareVectorRecursiv(int[] v, int i)
 {
-    if (i != -1)
+    if (i < -1)
     {
-        AfisareVectorRecursiv(v, i-1);
-        Console.WriteLine(v[i]);
+        return;
     }
+    AfisareVectorRecursiv(v, i - 1);
+    Console.WriteLine(v[i]);
 }

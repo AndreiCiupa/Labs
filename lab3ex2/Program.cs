@@ -7,9 +7,7 @@ Apelati-o si afisati-i rezultatul
 Console.Write("Introduceti un numar: ");
 int numar = int.Parse(Console.ReadLine());
 
-bool estePrim = EstePrim(numar);
-
-if (estePrim == true)
+if (EstePrim(numar))
     Console.WriteLine("Numarul este Prim.");
 else
     Console.WriteLine("Numarul nu este Prim.");
@@ -20,12 +18,11 @@ static bool EstePrim(int x)
     { return false; }
     else
     {
-        for (int d = 2; d * d <= x; d++)
+        for (int i = 2; i < x/2; i++)
         {
-            if (x % d == 0)
+            if (x % i == 0)
                 return false;
         }
         return true;
     }
-    
 }

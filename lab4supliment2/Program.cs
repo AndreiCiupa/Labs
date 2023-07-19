@@ -8,45 +8,30 @@ cazurilor sa se afiseze numarul.
 Console.Write("n = ");
 int n = int.Parse(Console.ReadLine());
 
-int[] intNumere = new int[n];
-
-for(int i = n-1; i>=0; i--)
+for(int i  = 1; i <= n; i++)
 {
-    intNumere[i] = i+1;
-}
-
-//Afisare inainte
-for (int i = 0; i < n; i++)
-{
-    Console.Write(intNumere[i] + " ");
+    Console.Write(i + " ");
 }
 
 Console.WriteLine("\n");
 
-string[] stringNumere = Array.ConvertAll(intNumere, x => x.ToString());
-
-
-for(int i = 0; i < n; i++)
+for (int i = 1; i <= n; i++)
 {
-    if (intNumere[i] % 3 == 0 && intNumere[i] % 5 != 0)
+    if (i % 5 == 0 && i % 3 == 0)
     {
-        stringNumere[i] = "Fizz";
+        Console.Write("Fizzbuzz ");
     }
-
-    if (intNumere[i] % 3 != 0 && intNumere[i] % 5 == 0)
+    else if (i % 3 == 0)
     {
-        stringNumere[i] = "Buzz";
+        Console.Write("Fizz ");
     }
-
-    if (intNumere[i] % 3 == 0 && intNumere[i] % 5 == 0)
+    else if (i % 5 == 0)
     {
-        stringNumere[i] = "FizzBuzz";
+        Console.Write("Buzz ");
+    }
+    else
+    {
+        Console.Write(i + " ");
     }
 }
-
-//Afisare dupa
-for(int i = 0; i < n; i++)
-{
-    Console.Write(stringNumere[i] + " ");
-}
-Console.WriteLine();
+Console.WriteLine("\n");

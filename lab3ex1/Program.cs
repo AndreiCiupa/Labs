@@ -14,8 +14,8 @@ static int SumaCifrelor(int x)
     int suma = 0;
     while (x > 0)
     {
-        suma += x%10;
-        x /= 10;
+        suma += x%10; // suma = suma + x%10;
+        x /= 10; // x = x / 10;
     }
     return suma;
 }

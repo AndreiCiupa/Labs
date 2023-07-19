@@ -64,6 +64,9 @@ static void AfisareMatrice(int[,,] matrice, int n, int m, int k)
 static int SumaElementeMatrice(int[,,] matrice, int n, int m, int k)
 {
     int sumaElementeMatrice = 0;
+    n = matrice.GetLength(0);
+    m=matrice.GetLength(1);
+    k=matrice.GetLength(2);
 
     for (int i = 0; i < n; i++)
     {
@@ -76,6 +79,10 @@ static int SumaElementeMatrice(int[,,] matrice, int n, int m, int k)
         }
     }
 
+    foreach(int i in matrice) {
+        sumaElementeMatrice += i;
+    }
+
     return sumaElementeMatrice;
 }
 
@@ -83,31 +90,19 @@ static int MaximMatrice(int[,,] matrice, int n, int m, int k)
 {
     int maxim = matrice[0, 0, 0];
     
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        if (i != 0)
+        for (int j = 0; j < m; j++)
         {
-            if (matrice[i, 0, 0] > matrice[i - 1, 0, 0])
-            {
-                maxim = matrice[i, 0, 0];
-            }
-        }
-        for( int j = 0; j < m; j++)
-        {
-            if (j != 0)
-            {
-                if (matrice[i, j, 0] > matrice[i, j-1, 0])
-                {
-                    maxim = matrice[i, j, 0];
-                }
-            }
             for (int l = 0; l < k; l++)
             {
-                if (matrice[i,j,l] > maxim)
+                if (matrice[i, j, l] > maxim)
+                {
                     maxim = matrice[i, j, l];
+                }
             }
         }
     }
-    
+
     return maxim;
 }

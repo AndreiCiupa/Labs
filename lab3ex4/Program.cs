@@ -30,9 +30,10 @@ AfisareVector(v);
 Console.WriteLine("Cel mai mare numar din vector este: "+ Maxim(v));
 Console.WriteLine("Cel mai mic numar din vector este: " + Minim(v));
 Console.Write("Numerele divizibile cu 3: ");
-DivizibileCuTrei(v);
+AfisareVector(DivizibileCuTrei(v));
+//var cmnrd3 = Minim(DivizibileCuTrei(v));
 Console.Write("Numerele prime din vector: ");
-Prime(v);
+AfisareVector(Prime(v));
 
 
 //Functie pentru afisarea vectorului
@@ -73,7 +74,7 @@ static int Minim(int[] v)
 }
 
 //Functie pentru gasirea si afisarea numerelor divizibile cu 3
-static void DivizibileCuTrei(int[] v)
+static int[] DivizibileCuTrei(int[] v)
 {
     int contor = 0;
     for(int i = 0; i < v.Length; ++i)
@@ -83,6 +84,9 @@ static void DivizibileCuTrei(int[] v)
             contor++;
         }
     }
+    // 2 3 5 44 6 1 3 2
+    // 3 6 3 
+    // j 3
 
     int[] divCuTrei = new int[contor];
     int j = 0;
@@ -94,8 +98,8 @@ static void DivizibileCuTrei(int[] v)
             j++;
         }
     }
-
-    AfisareVector(divCuTrei);
+    
+    return divCuTrei;
 }
 
 // Functie verificare primalitate
@@ -105,9 +109,9 @@ static bool EstePrim(int x)
     { return false; }
     else
     {
-        for (int d = 2; d * d <= x; d++)
+        for (int i = 2; i < x/2; i++)
         {
-            if (x % d == 0)
+            if (x % i == 0)
                 return false;
         }
         return true;
@@ -116,7 +120,7 @@ static bool EstePrim(int x)
 }
 
 //Functie pentru gasirea + afisarea numerelor prime 
-static void Prime(int[] v)
+static int[] Prime(int[] v)
 {
     int contor = 0;
     for (int i = 0; i < v.Length; ++i)
@@ -138,5 +142,5 @@ static void Prime(int[] v)
         }
     }
 
-    AfisareVector(prime);
+    return prime;
 }

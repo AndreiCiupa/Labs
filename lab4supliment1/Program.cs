@@ -9,10 +9,19 @@ int b = int.Parse(Console.ReadLine());
 
 int cmmdc = 1;
 
-while(b != 0)
+for(int i = 1; i <= Math.Min(a, b); i++)
 {
-    var anteriorB = b;
-    b = a % b;
-    a = anteriorB;
+    if (a%i==0&& b % i == 0)
+    {
+        cmmdc = i;
+    }
 }
-Console.WriteLine("CMMDC = " +  a);
+Console.WriteLine(cmmdc);   
+
+//while(b != 0)
+//{
+//    var anteriorB = b;
+//    b = a % b;
+//    a = anteriorB;
+//}
+//Console.WriteLine("CMMDC = " +  a);
