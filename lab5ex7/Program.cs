@@ -10,7 +10,7 @@ string str1 = Console.ReadLine();
 Console.Write("Enter the second string: ");
 string str2 = Console.ReadLine();
 
-if(IsAnagram(str1, str2)) { Console.WriteLine("They are anagrams."); }
+if (IsAnagram(str1, str2)) { Console.WriteLine("They are anagrams."); }
 else { Console.WriteLine("They are not anagrams."); }
 
 static string GetStringNoWhitespace(string str)
@@ -26,46 +26,37 @@ static string GetStringNoWhitespace(string str)
     return str;
 }
 
+static string GetSortedString(string str)
+{
+    char[] convertedString = str.ToCharArray();
+    Array.Sort(convertedString);
+    string sortedString = new string(convertedString);
+    return sortedString;
+}
+
 static bool IsAnagram(string str1, string str2)
 {
-    bool isAnagram;
-
     str1 = GetStringNoWhitespace(str1);
     str1 = str1.ToLower();
 
     str2 = GetStringNoWhitespace(str2);
     str2 = str2.ToLower();
 
-    if (str1.Length != str2.Length) { isAnagram = false; }
-    else
+    int length1 = str1.Count();
+    int length2 = str2.Count();
+
+    if (length1 != length2) { return false; }
+
+    str1 = GetSortedString(str1);
+    str2 = GetSortedString(str2);
+
+    for (int i = 0; i < length1; i++)
     {
-        for (int i = 0; i < str1.Length; i++)
+        if (str1[i] != str2[i])
         {
-            for (int j = 0; j < str2.Length; j++)
-            {
-                if (str1[i] == str2[j])
-                {
-                    str2 = str2.Substring(0, j) + str2.Substring(j + 1);
-                    break;
-                }
-            }
-            continue;
+            return false;
         }
-        if (string.IsNullOrEmpty(str2)) { isAnagram = true; }
-        else { isAnagram = false; }
     }
 
-    return isAnagram;
-
-    //int i = 0; 
-    //for (int j = 0; j < str2.Length; j++)
-    //{
-    //    if (str1[i] == str2[j])
-    //    {
-    //        str2 = str2.Substring(0, j) + str2.Substring(j + 1);
-    //        j++;
-    //        str1 = str1.Substring(0, i) + str1.Substring(i + 1);
-    //        i++;
-    //    }
-    //}
+    return true;
 }
