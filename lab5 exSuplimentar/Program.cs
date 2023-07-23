@@ -23,7 +23,7 @@ int m;
 string[] numeElevi = new string[n];
 string[] prenumeElevi = new string[n];
 int[] numarNoteElevi = new int[n];
-int[,] noteElevi = new int[n,n]; //NU E OK, numarul de note nu e egal cu nrul de elevi...... stuck
+int[][] noteElevi = new int[n][]; // JAGGED
 
 
 for (int i = 0; i < n; i++)
@@ -39,24 +39,30 @@ for (int i = 0; i < n; i++)
 
     numarNoteElevi[i] = m;
 
+    noteElevi[i] = new int[m];
+
     for(int j = 0; j < m; j++)
     {
         Console.Write("Introduceti nota elevului: ");
-        noteElevi[i,j] = int.Parse(Console.ReadLine());
+        noteElevi[i][j] = int.Parse(Console.ReadLine());
     }
+    Console.WriteLine();
 }
 
+Console.WriteLine();
+Console.WriteLine( GetBestStudent( numeElevi, prenumeElevi, GetPerformances(numarNoteElevi, noteElevi) ) );
 
-static int[] GetPerformances(int[] numarNoteElevi, int[,] noteElevi)
+//Returneaza mediile
+static int[] GetPerformances(int[] numarNoteElevi, int[][] noteElevi)
 {
     int[] medii = new int[numarNoteElevi.Length];
 
     for( int i = 0;i < numarNoteElevi.Length; i++)
     {
         int medieNote = 0;
-        for( int j = 0; j < numarNoteElevi.Length; j++)
+        for( int j = 0; j < numarNoteElevi[i]; j++)
         {
-            medieNote += noteElevi[i,j];
+            medieNote += noteElevi[i][j];
         }
         medieNote /= numarNoteElevi[i];
         medii[i] = medieNote;
@@ -64,6 +70,7 @@ static int[] GetPerformances(int[] numarNoteElevi, int[,] noteElevi)
     return medii;
 }
 
+//returneaza numele, prenumele, media (!rotunjita in jos!)
 static string GetBestStudent(string[] numeElevi, string[] prenumeElevi, int[] medii)
 {
     string Student = "";
