@@ -31,7 +31,7 @@ class Dulap
     private int lungime;
     private int latime;
     private int inaltime;
-
+   
     public Dulap(int lungime, int latime, int inaltime)
     {
         this.lungime = lungime;
