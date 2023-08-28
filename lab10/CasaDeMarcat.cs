@@ -1,10 +1,5 @@
 ﻿using lab10.BonDeCasa;
 using lab10.Dispozitive;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab10
 {
