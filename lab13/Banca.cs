@@ -41,22 +41,22 @@ namespace lab13
 
         public void EmiteCard(Guid idCont)
         {
-            int i = 0;
+            //int i = 0;
             ContBancar cont = conturiCurente[idCont];
 
-            foreach (KeyValuePair<Guid, Guid> kvp in carduriSiConturi)
-            {
-                if(kvp.Value == idCont)
-                {
-                    i++;
-                }
-            }
+            //foreach (KeyValuePair<Guid, Guid> kvp in carduriSiConturi)
+            //{
+            //    if(kvp.Value == idCont)
+            //    {
+            //        i++;
+            //    }
+            //}
 
             if (!conturiCurente.ContainsKey(idCont))
             {
                 throw new ContInexistentException("Cont invalid.");
             }
-            if (cont.carduriEmise ==  2)
+            else if (cont.carduriEmise ==  2)
             {
                 throw new NumarCarduriAtinsException("Numarul de carduri permis a fost atins.");
             }
