@@ -56,12 +56,12 @@ namespace lab13
             {
                 throw new ContInexistentException("Cont invalid.");
             }
-            else if (cont.carduriEmise ==  2)
+
+            if (cont.carduriEmise >=  2)
             {
                 throw new NumarCarduriAtinsException("Numarul de carduri permis a fost atins.");
             }
-            else
-            {
+            
                 Card cardNou = new Card();
 
                 cardNou.idCard = Guid.NewGuid();
@@ -72,7 +72,7 @@ namespace lab13
                 Console.WriteLine("Card emis cu succes.");
 
                 cont.carduriEmise++;
-            }
+            
         }
 
         public void Plateste(int suma, Guid idCard)

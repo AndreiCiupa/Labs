@@ -108,6 +108,7 @@ Banca este unica la nivel de aplicatie. Cititi despre Singleton design pattern s
 
 
 using lab13;
+using lab13.Exceptions;
 //Instantiati banca, creeati conturi, depuneti bani in conturi,
 //instantiati un POS, emiteti carduri si
 //efectuati plati prin intermediul POS-ului
@@ -119,31 +120,65 @@ Console.WriteLine("A fost creat contul cu id-ul:" + idCont1);
 
 ContBancar cont1 = banca.conturiCurente[idCont1];
 
-cont1.DepuneNumerar(5000);
-banca.EmiteCard(idCont1);
-Console.WriteLine(cont1.carduriEmise);
+//cont1.DepuneNumerar(5000);
+//banca.EmiteCard(idCont1);
+//Console.WriteLine(cont1.carduriEmise);
 
-banca.EmiteCard(idCont1);
-Console.WriteLine(cont1.carduriEmise);
+//banca.EmiteCard(idCont1);
+//Console.WriteLine(cont1.carduriEmise);
 
-Card card1 = banca.caruriEmise[] 
+//banca.EmiteCard(idCont1);
+//Console.WriteLine(cont1.carduriEmise);
+
+//Card card1 = banca.caruriEmise[] 
 
 POS pOS = new POS();
 
-pOS.Plateste();
+//pOS.Plateste();
 
-//try
-//{
-//	banca.EmiteCard(idCont1);
-//    banca.EmiteCard(idCont1);
+try
+{
+    banca.EmiteCard(idCont1);
+    Console.WriteLine(cont1.carduriEmise);
 
-//}
-//catch (Exception e)
-//{
+    
 
-//	Console.WriteLine(e.Message);
-//}
+}
+catch (NumarCarduriAtinsException e)
+{
 
+    Console.WriteLine(e.Message);
+}
+
+
+try
+{
+    banca.EmiteCard(idCont1);
+    Console.WriteLine(cont1.carduriEmise);
+
+
+
+}
+catch (NumarCarduriAtinsException e)
+{
+
+    Console.WriteLine(e.Message);
+}
+
+
+try
+{
+    banca.EmiteCard(idCont1);
+    Console.WriteLine(cont1.carduriEmise);
+
+
+
+}
+catch (NumarCarduriAtinsException e)
+{
+
+    Console.WriteLine(e.Message);
+}
 
 //IDictionary<Guid, ContBancar> conturiCurente;
 ////conturiCurente.Count;
