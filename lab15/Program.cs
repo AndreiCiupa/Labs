@@ -25,9 +25,6 @@
 //  cerinta inaintea fiecarui query
 
 using lab15;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text.RegularExpressions;
 
 var students = new List<Student>()
     {
@@ -195,8 +192,6 @@ Console.WriteLine();
     .
 */
 
-int age = 20;
-
 var groupByAge = from s in students
                   group s by s.Age into newGroup
                   orderby newGroup.Key
@@ -205,12 +200,8 @@ var groupByAge = from s in students
 foreach (var group in groupByAge)
 {
     Console.WriteLine($"Studentii cu varsta de {group.Key} de ani");
-
     foreach (var s in group)
     {
-
-        
             Console.WriteLine(s.ToString());
-        
     }
 }
