@@ -1,4 +1,4 @@
-﻿// LAB 16 - Ex 1
+﻿// LAB 16 - Ex 2
 /*
 • Un autovehicul este caracterizat de
     urmatoarele proprietati
