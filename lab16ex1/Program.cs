@@ -63,7 +63,7 @@ static void ShowAllAlphbOrd()
 
     foreach (var s in studentsAlphbOrd)
     {
-        Console.WriteLine(s.ToString());
+        Console.WriteLine(s);
     }
 }
 
