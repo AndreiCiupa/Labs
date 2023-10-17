@@ -62,7 +62,7 @@ si o functie statica seedDB/resetDB
     • Adaugare de produs
     • Va adauga automat si eticheta
     • Obtinerea valorii stocului per categorie
-    per producator
+    per producator (?!) 
  */
 
 using lab17;
