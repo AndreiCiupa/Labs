@@ -46,7 +46,7 @@ relatie in parte
 using lab18.Models;
 
 
-Seed();
+//Seed();
 
 
 static void Seed()

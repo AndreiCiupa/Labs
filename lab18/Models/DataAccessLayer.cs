@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,27 +29,71 @@ namespace lab18.Models
     */
     internal static class DataAccessLayer
     {
-        public static void AddAutvehicul()
+        //Implica adaugarea cartii tehnice
+        public static void AddAutvehicul(string nume, int producatorId, int newCapac, int newAn, string newSerie)
         {
             using var ctx = new ParcAutoDBContext();
 
-            ctx.SaveChanges();
-        }
-        public static void AddProducator()
-        {
-            using var ctx = new ParcAutoDBContext();
+            var producator = ctx.Producatori.FirstOrDefault(p => p.Id == producatorId);
+            if (producator == null) { return; }
+
+            var newCarte = new CarteTehnica
+            {
+                CaapacitateCilindrica = newCapac,
+                AnFabricatie = newAn,
+                SerieDeSasiu = newSerie
+            };
+
+            var newAutovehicul = new Autovehicul
+            {
+                Nume = nume,
+                Producator = producator,
+                CarteTehnica = newCarte
+            };
+
+            producator.Autovehicule.Add(newAutovehicul);
 
             ctx.SaveChanges();
         }
-        public static void AddCheie()
+        public static void AddProducator(string nume, string adresa)
         {
             using var ctx = new ParcAutoDBContext();
 
+            ctx.Producatori.Add(new Producator
+            {
+                Nume = nume,
+                Adresa = adresa
+            });
+
             ctx.SaveChanges();
         }
-        public static void ChangeCarteTehnica()
+        //Adauga o cheie nou la un autovehicul existent
+        public static void AddCheie(int autovehiculId)
         {
             using var ctx = new ParcAutoDBContext();
+
+            var autoveh = ctx.Autovehicule.FirstOrDefault(p => p.Id.Equals(autovehiculId));
+            if (autoveh == null) { return ; }
+
+            var newCheie = new Cheie();
+
+            ctx.Chei.Add(newCheie);
+
+            autoveh.Chei.Add(newCheie);
+
+            ctx.SaveChanges();
+        }
+        public static void ChangeCarteTehnica(int carteVecheId, int newCapacitate, int newAnF, string newSerie)
+        {
+            using var ctx = new ParcAutoDBContext();
+
+            var carteT = ctx.CartiTehnice.FirstOrDefault(c => c.Id == carteVecheId);
+            
+            if (carteT != null) { return; }
+
+            carteT.CaapacitateCilindrica = newCapacitate;
+            carteT.AnFabricatie = newAnF;
+            carteT.SerieDeSasiu = newSerie;
 
             ctx.SaveChanges();
         }
@@ -54,7 +101,7 @@ namespace lab18.Models
         {
             using var ctx = new ParcAutoDBContext();
 
-            var autovehicul = ctx.Producatori.FirstOrDefault(p => p.Id == producatorId);
+            var autovehicul = ctx.Autovehicule.FirstOrDefault(p => p.Id == autovehiculId);
 
             if (autovehicul == null) { return; }
 
